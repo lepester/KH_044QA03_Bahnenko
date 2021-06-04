@@ -24,7 +24,7 @@ hs_err_pid*
 
 # Cache files
 .target/
-.idea
+.idea/
 
 #Screenshots
 *.png
