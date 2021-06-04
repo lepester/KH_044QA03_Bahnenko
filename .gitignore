@@ -26,5 +26,8 @@ hs_err_pid*
 .target/
 .idea/
 
-#Screenshots
+# IntelijIdea cache files
+*.iml
+
+# Screenshots
 *.png
