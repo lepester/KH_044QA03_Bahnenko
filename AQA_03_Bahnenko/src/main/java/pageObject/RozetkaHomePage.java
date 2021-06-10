@@ -11,16 +11,19 @@ public class RozetkaHomePage extends BasePage {
     private WebElement searchFieldRozetka;
     @FindBy(css = "button.search-form__submit")
     private WebElement searchButtonSubmit;
+    @FindBy(css = "main.content_type_main")
+    private WebElement sidebar;
 
     public RozetkaHomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+        sidebar.isDisplayed();
     }
 
-    public SearchResultsRozetka goToSearchResultsRozetka() {
+    public RozetkaSearchResults goToSearchResultsRozetka() {
         searchFieldRozetka.clear();
-        searchFieldRozetka.sendKeys("book");
+        searchFieldRozetka.sendKeys("монитор");
         searchButtonSubmit.click();
-        return new SearchResultsRozetka(driver);
+        return new RozetkaSearchResults(driver);
     }
 }
