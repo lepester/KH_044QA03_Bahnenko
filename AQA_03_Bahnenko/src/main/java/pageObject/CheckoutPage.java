@@ -14,7 +14,6 @@ public class CheckoutPage extends BasePage {
     public CheckoutPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        WebDriverWait pageLoading = new WebDriverWait(driver ,5);
-        pageLoading.until(ExpectedConditions.elementToBeClickable(acceptButton));
+        clickableWaiter(acceptButton);
     }
 }

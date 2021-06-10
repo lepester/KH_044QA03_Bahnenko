@@ -27,18 +27,16 @@ public class RozetkaProductPage extends BasePage {
     public RozetkaProductPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        WebDriverWait pageLoading = new WebDriverWait(driver ,5);
-        pageLoading.until(ExpectedConditions.visibilityOf(tabItemMain));
+       visibilityWaiter(tabItemMain);
     }
 
     public Checkout clickToCheckout() {
         Actions actions = new Actions(driver);
-        WebDriverWait pageLoading = new WebDriverWait(driver ,5);
-        pageLoading.until(ExpectedConditions.elementToBeClickable(buyButton));
+        clickableWaiter(buyButton);
         actions.moveToElement(buyButton).perform();
         buyButton.click();
 
-        pageLoading.until(ExpectedConditions.elementToBeClickable(acceptButton));
+        clickableWaiter(acceptButton);
         acceptButton.click();
 
         return new Checkout(driver);

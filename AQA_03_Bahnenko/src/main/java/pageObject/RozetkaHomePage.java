@@ -13,11 +13,21 @@ public class RozetkaHomePage extends BasePage {
     private WebElement searchButtonSubmit;
     @FindBy(css = "main.content_type_main")
     private WebElement sidebar;
+    @FindBy(css = "button.menu__toggle")
+    private WebElement catalog;
+    @FindBy(xpath = "//a[@href='https://hard.rozetka.com.ua/monitors/c80089/']")
+    private WebElement displaySection;
 
     public RozetkaHomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         sidebar.isDisplayed();
+    }
+
+    public RozetkaDisplaysPage openCatalog() {
+        catalog.click();
+        displaySection.click();
+        return new RozetkaDisplaysPage(driver);
     }
 
     public RozetkaSearchResults goToSearchResultsRozetka() {
