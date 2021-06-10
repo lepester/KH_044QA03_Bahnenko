@@ -5,11 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class RozetkaProductPage extends BasePage {
-
     @FindBy(css = "div.layout_with_sidebar")
     private WebElement resultsGrid;
     @FindBy(xpath = "a.goods-tile__picture")
@@ -23,7 +20,6 @@ public class RozetkaProductPage extends BasePage {
     @FindBy(css = "a.button_size_large")
     private WebElement acceptButton;
 
-
     public RozetkaProductPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -35,10 +31,8 @@ public class RozetkaProductPage extends BasePage {
         clickableWaiter(buyButton);
         actions.moveToElement(buyButton).perform();
         buyButton.click();
-
         clickableWaiter(acceptButton);
         acceptButton.click();
-
         return new Checkout(driver);
     }
 }

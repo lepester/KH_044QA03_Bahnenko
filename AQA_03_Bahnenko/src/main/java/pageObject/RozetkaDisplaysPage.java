@@ -4,11 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 public class RozetkaDisplaysPage extends BasePage {
-
     @FindBy(css = "layout_with_sidebar")
     private WebElement sidebar;
     @FindBy(xpath = "//a[@href='/monitors/c80089/seller=rozetka/']")
@@ -29,6 +27,5 @@ public class RozetkaDisplaysPage extends BasePage {
         visibilityWaiter(catalogSettings);
         display.click();
         return new RozetkaProductPage(driver);
-
     }
 }

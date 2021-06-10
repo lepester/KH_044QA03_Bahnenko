@@ -9,9 +9,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import pageObject.RozetkaHomePage;
-import pageObject.RozetkaProductPage;
 import pageObject.RozetkaSearchResults;
-
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -43,8 +41,6 @@ public class DisplayCartTest {
         rozetkaHomePage.goToSearchResultsRozetka();
         rozetkaSearchResults.goToProductPage()
                             .clickToCheckout();
-
-
     }
 
     @AfterMethod(alwaysRun = true)

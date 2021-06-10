@@ -6,7 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class Checkout extends BasePage {
-
     @FindBy(css = "div.modal__holder")
     private WebElement modalHolder;
     @FindBy(xpath = "//div[@class='preloader']")
