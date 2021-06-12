@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class SearchResultsPage extends BasePage {
 
-    @FindBy(xpath = "//a[@href='https://rozetka.com.ua/']")
+    @FindBy(css = "#rso a h3")
     private WebElement targetLink;
 
     public SearchResultsPage(WebDriver driver) {
