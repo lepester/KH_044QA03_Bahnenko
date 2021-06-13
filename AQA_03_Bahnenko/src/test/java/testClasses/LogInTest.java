@@ -1,4 +1,4 @@
-package testNG;
+package testClasses;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -18,19 +18,18 @@ import static com.sun.deploy.cache.Cache.copyFile;
 
 public class LogInTest extends BaseTest {
 
-    @BeforeSuite
+    @BeforeSuite(alwaysRun = true)
     public void setProps() {
         System.setProperty(setProperties, driverPath);
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
-    @Test
+    @Test(groups = { "include-group" })
     public void logInTest() {
         RozetkaHomePage rozetkaHomePage = new RozetkaHomePage(driver);
         rozetkaHomePage.openPage().openSideMenu().logIn();

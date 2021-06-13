@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import pageObject.RozetkaHomePage;
 import pageObject.RozetkaSearchResults;
-import testNG.BaseTest;
+import testClasses.BaseTest;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,19 +18,20 @@ import java.time.LocalDate;
 import static com.sun.deploy.cache.Cache.copyFile;
 
 public class AddToCartTest extends BaseTest {
-    @BeforeSuite
+
+    @BeforeSuite(alwaysRun = true)
     public void setProps() {
         System.setProperty(setProperties, driverPath);
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setUp() {
         driver = new ChromeDriver();
         driver.get("https://rozetka.com.ua/");
         driver.manage().window().maximize();
     }
 
-    @Test
+    @Test(groups = {"exclude-group"})
     public void addToCartTest() {
         RozetkaHomePage rozetkaHomePage = new RozetkaHomePage(driver);
         RozetkaSearchResults rozetkaSearchResults = new RozetkaSearchResults(driver);

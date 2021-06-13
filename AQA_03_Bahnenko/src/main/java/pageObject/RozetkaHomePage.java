@@ -51,7 +51,9 @@ public class RozetkaHomePage extends BasePage {
 
     public RozetkaHomePage openSideMenu() {
         hamburgerButton.click();
+        visibilityWaiter(logInButton);
         logInButton.click();
+        clickableWaiter(registerButton);
         return this;
     }
 

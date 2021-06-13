@@ -1,4 +1,4 @@
-package testNG;
+package testClasses;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -16,16 +16,15 @@ import static com.sun.deploy.cache.Cache.copyFile;
 
 public class DataProviderTest extends BaseTest {
 
-    @BeforeSuite
+    @BeforeSuite(alwaysRun = true)
     public void setProps() {
         System.setProperty(setProperties, driverPath);
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
     @DataProvider(name = "searchText")
@@ -37,12 +36,11 @@ public class DataProviderTest extends BaseTest {
         };
     }
 
-    @Test(dataProvider = "searchText")
+    @Test(groups = { "exclude-group" }, dataProvider = "searchText")
     public void dataProviderTest(String searchText) {
         RozetkaHomePage rozetkaHomePage = new RozetkaHomePage(driver);
         rozetkaHomePage.openPage()
-                       .goToSearchResultsRozetka(searchText)
-                       .goToProductPage();
+                       .goToSearchResultsRozetka(searchText);
     }
 
     @AfterMethod(alwaysRun = true)

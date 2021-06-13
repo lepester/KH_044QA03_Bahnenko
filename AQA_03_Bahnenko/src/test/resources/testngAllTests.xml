@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Suite" >
+    <test name="testClasses.DataProviderTest" >
+        <packages>
+            <package name="testClasses" />
+        </packages>
+        <classes>
+            <class name="testClasses.BaseTest"/>
+            <class name="testClasses.DataProviderTest"/>
+            <class name="testClasses.LogInTest"/>
+            <class name="AddToCartTest"/>
+            <class name="SellerFilterTest"/>
+        </classes>
+    </test>
+</suite>
