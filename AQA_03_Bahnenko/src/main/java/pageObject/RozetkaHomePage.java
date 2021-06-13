@@ -20,8 +20,18 @@ public class RozetkaHomePage extends BasePage {
     private WebElement hamburgerButton;
     @FindBy(css = "button.side-menu__auth-button")
     private WebElement logInButton;
-    @FindBy(id = "auth_email")
+    @FindBy(id = "registerUserName")
+    private WebElement name;
+    @FindBy(id = "registerUserSurname")
+    private WebElement surname;
+    @FindBy(id = "registerUserPhone")
+    private WebElement phone;
+    @FindBy(id = "registerUserEmail")
     private WebElement email;
+    @FindBy(id = "registerUserPassword")
+    private WebElement password;
+    @FindBy(css = "a.auth-modal__register-link")
+    private WebElement registerButton;
 
     public RozetkaHomePage(WebDriver driver) {
         this.driver = driver;
@@ -42,6 +52,16 @@ public class RozetkaHomePage extends BasePage {
     public RozetkaHomePage openSideMenu() {
         hamburgerButton.click();
         logInButton.click();
+        return this;
+    }
+
+    public RozetkaHomePage logIn() {
+        registerButton.click();
+        name.sendKeys("Дмитрий");
+        surname.sendKeys("Гордон");
+        phone.sendKeys("123 456 78 90");
+        email.sendKeys("gordondmitro@gmail.com");
+        password.sendKeys("ptashineMoLoKo5123");
         return this;
     }
 

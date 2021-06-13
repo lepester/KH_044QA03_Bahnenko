@@ -34,17 +34,4 @@ public class SellerFilterTest extends BaseTest {
         rozetkaHomePage.openPage().openCatalog().chooseRozetkaSeller();
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void takeScreenshot(ITestResult result) {
-        if (!result.isSuccess())
-            try {
-                File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-                copyFile(scrFile, new File(result.getName() +"["+ LocalDate.now() + "][" + System.currentTimeMillis() + "].png"));
-
-            } catch (
-                    IOException e) {
-                e.printStackTrace();
-            }
-        driver.quit();
-    }
 }
