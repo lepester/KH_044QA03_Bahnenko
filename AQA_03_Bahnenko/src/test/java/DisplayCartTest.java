@@ -10,24 +10,24 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import pageObject.RozetkaHomePage;
 import pageObject.RozetkaSearchResults;
+import testNG.BaseTest;
+
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 
 import static com.sun.deploy.cache.Cache.copyFile;
 
-public class DisplayCartTest {
-    WebDriver driver;
+public class DisplayCartTest extends BaseTest {
 
     @BeforeSuite
     public void setProps() {
-        System.setProperty("webdriver.chrome.driver", "browserDrivers/chromedriver.exe");
+        System.setProperty(setProperties, driverPath);
     }
 
     @BeforeMethod
     public void setUp() {
         driver = new ChromeDriver();
-        driver.get("https://rozetka.com.ua/");
         driver.manage().window().maximize();
     }
 
@@ -38,7 +38,7 @@ public class DisplayCartTest {
 
         String URL = driver.getCurrentUrl();
         Assert.assertEquals(URL, "https://rozetka.com.ua/");
-        rozetkaHomePage.goToSearchResultsRozetka();
+        rozetkaHomePage.openPage().goToSearchResultsRozetka("монитор");
         rozetkaSearchResults.goToProductPage()
                             .clickToCheckout();
     }

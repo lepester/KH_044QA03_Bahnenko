@@ -1,21 +1,20 @@
+package testNG;
+
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import pageObject.RozetkaHomePage;
-import testNG.BaseTest;
 
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.concurrent.TimeUnit;
 
 import static com.sun.deploy.cache.Cache.copyFile;
 
-public class SellerFilterTest extends BaseTest {
+public class DataProviderTest extends BaseTest {
 
     @BeforeSuite
     public void setProps() {
@@ -26,12 +25,24 @@ public class SellerFilterTest extends BaseTest {
     public void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
-    @Test
-    public void sellerFilterTest() {
+    @DataProvider(name = "searchText")
+    public static Object[][] searchText() {
+        return new Object[][] {
+                {"кофе"},
+                {"мягкие игрушки"},
+                {"кружка"}
+        };
+    }
+
+    @Test(dataProvider = "searchText")
+    public void dataProviderTest(String searchText) {
         RozetkaHomePage rozetkaHomePage = new RozetkaHomePage(driver);
-        rozetkaHomePage.openPage().openCatalog().chooseRozetkaSeller();
+        rozetkaHomePage.openPage()
+                       .goToSearchResultsRozetka(searchText)
+                       .goToProductPage();
     }
 
     @AfterMethod(alwaysRun = true)
@@ -46,5 +57,10 @@ public class SellerFilterTest extends BaseTest {
                 e.printStackTrace();
             }
         driver.quit();
+    }
+
+    @AfterSuite
+    public void afterSuite() {
+        System.out.println("All tests passed");
     }
 }

@@ -16,11 +16,21 @@ public class RozetkaHomePage extends BasePage {
     private WebElement catalog;
     @FindBy(xpath = "//a[@href='https://hard.rozetka.com.ua/monitors/c80089/']")
     private WebElement displaySection;
+    @FindBy(css = "button.header__button")
+    private WebElement hamburgerButton;
+    @FindBy(css = "button.side-menu__auth-button")
+    private WebElement logInButton;
+    @FindBy(id = "auth_email")
+    private WebElement email;
 
     public RozetkaHomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        sidebar.isDisplayed();
+    }
+
+    public RozetkaHomePage openPage() {
+        driver.get("https://rozetka.com.ua/");
+        return this;
     }
 
     public RozetkaDisplaysPage openCatalog() {
@@ -29,9 +39,15 @@ public class RozetkaHomePage extends BasePage {
         return new RozetkaDisplaysPage(driver);
     }
 
-    public RozetkaSearchResults goToSearchResultsRozetka() {
+    public RozetkaHomePage openSideMenu() {
+        hamburgerButton.click();
+        logInButton.click();
+        return this;
+    }
+
+    public RozetkaSearchResults goToSearchResultsRozetka(String searchText) {
         searchFieldRozetka.clear();
-        searchFieldRozetka.sendKeys("монитор");
+        searchFieldRozetka.sendKeys(searchText);
         searchButtonSubmit.click();
         return new RozetkaSearchResults(driver);
     }
