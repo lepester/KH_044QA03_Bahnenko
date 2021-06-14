@@ -12,6 +12,7 @@ import testClasses.BaseTest;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.concurrent.TimeUnit;
 
 import static com.sun.deploy.cache.Cache.copyFile;
 
@@ -26,6 +27,7 @@ public class SellerFilterTest extends BaseTest {
     public void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
     @Test(groups = {"exclude-group"})

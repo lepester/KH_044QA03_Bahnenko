@@ -27,7 +27,6 @@ public class RozetkaDisplaysPage extends BasePage {
 
     public RozetkaProductPage chooseRozetkaSeller() {
         List<WebElement> filters = driver.findElements(sellerFilter);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         filters.get(0).click();
         visibilityWaiter(catalogSettings);
         display.click();
