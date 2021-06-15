@@ -21,15 +21,15 @@ public class RozetkaHomePage extends BasePage {
     @FindBy(css = "button.side-menu__auth-button")
     private WebElement logInButton;
     @FindBy(id = "registerUserName")
-    private WebElement name;
+    private WebElement nameInput;
     @FindBy(id = "registerUserSurname")
-    private WebElement surname;
+    private WebElement surnameInput;
     @FindBy(id = "registerUserPhone")
-    private WebElement phone;
+    private WebElement phoneInput;
     @FindBy(id = "registerUserEmail")
-    private WebElement email;
+    private WebElement emailInput;
     @FindBy(id = "registerUserPassword")
-    private WebElement password;
+    private WebElement passwordInput;
     @FindBy(css = "a.auth-modal__register-link")
     private WebElement registerButton;
 
@@ -38,7 +38,7 @@ public class RozetkaHomePage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    public RozetkaHomePage openPage() {
+    public RozetkaHomePage openFatMenu() {
         driver.get("https://rozetka.com.ua/");
         return this;
     }
@@ -57,13 +57,13 @@ public class RozetkaHomePage extends BasePage {
         return this;
     }
 
-    public RozetkaHomePage logIn() {
+    public RozetkaHomePage logIn(String name, String surname, String phone, String email, String password) {
         registerButton.click();
-        name.sendKeys("Дмитрий");
-        surname.sendKeys("Гордон");
-        phone.sendKeys("123 456 78 90");
-        email.sendKeys("gordondmitro@gmail.com");
-        password.sendKeys("ptashineMoLoKo5123");
+        nameInput.sendKeys(name);
+        surnameInput.sendKeys(surname);
+        phoneInput.sendKeys(phone);
+        emailInput.sendKeys(email);
+        passwordInput.sendKeys(password);
         return this;
     }
 

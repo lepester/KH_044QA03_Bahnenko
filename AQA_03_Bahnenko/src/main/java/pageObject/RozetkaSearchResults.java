@@ -14,10 +14,9 @@ public class RozetkaSearchResults extends BasePage {
     public RozetkaSearchResults(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        clickableWaiter(resultsGrid);
     }
 
-    public RozetkaProductPage goToProductPage() {
+    public RozetkaProductPage goToDisplayPage() {
         display.click();
         return new RozetkaProductPage(driver);
     }

@@ -5,9 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 
 public class RozetkaDisplaysPage extends BasePage {
@@ -28,6 +29,8 @@ public class RozetkaDisplaysPage extends BasePage {
     public RozetkaProductPage chooseRozetkaSeller() {
         List<WebElement> filters = driver.findElements(sellerFilter);
         filters.get(0).click();
+        String assertSeller = "Rozetka";
+        Assert.assertEquals(assertSeller,"Rozetka");
         visibilityWaiter(catalogSettings);
         display.click();
         return new RozetkaProductPage(driver);

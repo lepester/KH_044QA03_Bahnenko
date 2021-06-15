@@ -19,17 +19,6 @@ import static com.sun.deploy.cache.Cache.copyFile;
 
 public class AddToCartTest extends BaseTest {
 
-    @BeforeSuite(alwaysRun = true)
-    public void setProps() {
-        System.setProperty(setProperties, driverPath);
-    }
-
-    @BeforeMethod(alwaysRun = true)
-    public void setUp() {
-        driver = new ChromeDriver();
-        driver.get("https://rozetka.com.ua/");
-        driver.manage().window().maximize();
-    }
 
     @Test(groups = {"exclude-group"})
     public void addToCartTest() {
@@ -39,21 +28,9 @@ public class AddToCartTest extends BaseTest {
         String URL = driver.getCurrentUrl();
         Assert.assertEquals(URL, "https://rozetka.com.ua/");
         rozetkaHomePage.goToSearchResultsRozetka("монитор");
-        rozetkaSearchResults.goToProductPage()
-                .clickToCheckout();
+        rozetkaSearchResults.goToDisplayPage()
+                            .clickToCheckout();
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void takeScreenshot(ITestResult result) {
-        if (!result.isSuccess())
-            try {
-                File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-                copyFile(scrFile, new File(result.getName() +"["+ LocalDate.now() + "][" + System.currentTimeMillis() + "].png"));
 
-            } catch (
-                    IOException e) {
-                e.printStackTrace();
-            }
-        driver.quit();
-    }
 }
