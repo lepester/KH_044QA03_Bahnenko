@@ -20,18 +20,17 @@ public class RozetkaHomePage extends BasePage {
     public RozetkaHomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        sidebar.isDisplayed();
     }
 
-    public RozetkaDisplaysPage openCatalog() {
+    public RozetkaDisplaysPage openFatMenu() {
         catalog.click();
         displaySection.click();
         return new RozetkaDisplaysPage(driver);
     }
 
-    public RozetkaSearchResults goToSearchResultsRozetka() {
+    public RozetkaSearchResults goToSearchResultsRozetka(String searchInput) {
         searchFieldRozetka.clear();
-        searchFieldRozetka.sendKeys("монитор");
+        searchFieldRozetka.sendKeys(searchInput);
         searchButtonSubmit.click();
         return new RozetkaSearchResults(driver);
     }

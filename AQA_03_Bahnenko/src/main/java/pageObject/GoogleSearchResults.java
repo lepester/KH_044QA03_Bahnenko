@@ -5,12 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class SearchResultsPage extends BasePage {
+public class GoogleSearchResults extends BasePage {
 
     @FindBy(css = "#rso a h3")
     private WebElement targetLink;
 
-    public SearchResultsPage(WebDriver driver) {
+    public GoogleSearchResults(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }

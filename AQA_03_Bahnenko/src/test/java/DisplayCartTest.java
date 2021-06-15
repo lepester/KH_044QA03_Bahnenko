@@ -32,14 +32,14 @@ public class DisplayCartTest {
     }
 
     @Test
-    public void bookTest() {
+    public void displayCartTest() {
         RozetkaHomePage rozetkaHomePage = new RozetkaHomePage(driver);
         RozetkaSearchResults rozetkaSearchResults = new RozetkaSearchResults(driver);
 
         String URL = driver.getCurrentUrl();
         Assert.assertEquals(URL, "https://rozetka.com.ua/");
-        rozetkaHomePage.goToSearchResultsRozetka();
-        rozetkaSearchResults.goToProductPage()
+        rozetkaHomePage.goToSearchResultsRozetka("монитор");
+        rozetkaSearchResults.goToDisplayPage()
                             .clickToCheckout();
     }
 

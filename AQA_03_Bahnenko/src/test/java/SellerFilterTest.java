@@ -33,7 +33,7 @@ public class SellerFilterTest {
     @Test
     public void sellerFilterTest() {
         RozetkaHomePage rozetkaHomePage = new RozetkaHomePage(driver);
-        rozetkaHomePage.openCatalog().chooseRozetkaSeller();
+        rozetkaHomePage.openFatMenu().chooseRozetkaSeller();
     }
 
     @AfterMethod(alwaysRun = true)

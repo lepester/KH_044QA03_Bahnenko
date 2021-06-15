@@ -17,7 +17,7 @@ public class RozetkaSearchResults extends BasePage {
         clickableWaiter(resultsGrid);
     }
 
-    public RozetkaProductPage goToProductPage() {
+    public RozetkaProductPage goToDisplayPage() {
         display.click();
         return new RozetkaProductPage(driver);
     }
