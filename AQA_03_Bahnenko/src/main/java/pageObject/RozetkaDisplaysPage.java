@@ -12,8 +12,6 @@ import java.util.List;
 
 
 public class RozetkaDisplaysPage extends BasePage {
-    @FindBy(css = "layout_with_sidebar")
-    private WebElement sidebar;
     By sellerFilter = By.cssSelector("li.checkbox-filter__item");
     @FindBy(css = "div.catalog-settings")
     private WebElement catalogSettings;

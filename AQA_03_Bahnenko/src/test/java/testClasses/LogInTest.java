@@ -8,7 +8,7 @@ public class LogInTest extends BaseTest {
     @Test(groups = { "include-group" })
     public void logInTest() {
         RozetkaHomePage rozetkaHomePage = new RozetkaHomePage(driver);
-        rozetkaHomePage.openFatMenu()
+        rozetkaHomePage.openPage()
                 .openSideMenu()
                 .logIn( "Дмитро",
                         "Гордон",

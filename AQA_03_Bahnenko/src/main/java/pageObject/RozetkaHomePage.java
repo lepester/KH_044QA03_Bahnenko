@@ -32,18 +32,20 @@ public class RozetkaHomePage extends BasePage {
     private WebElement passwordInput;
     @FindBy(css = "a.auth-modal__register-link")
     private WebElement registerButton;
+    @FindBy(css = "a.main-links__help")
+    private WebElement supportButton;
 
     public RozetkaHomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    public RozetkaHomePage openFatMenu() {
+    public RozetkaHomePage openPage() {
         driver.get("https://rozetka.com.ua/");
         return this;
     }
 
-    public RozetkaDisplaysPage openCatalog() {
+    public RozetkaDisplaysPage openFatMenu() {
         catalog.click();
         displaySection.click();
         return new RozetkaDisplaysPage(driver);
@@ -72,5 +74,10 @@ public class RozetkaHomePage extends BasePage {
         searchFieldRozetka.sendKeys(searchText);
         searchButtonSubmit.click();
         return new RozetkaSearchResults(driver);
+    }
+
+    public RozetkaSupportPage goToSupportPage() {
+        supportButton.click();
+        return new RozetkaSupportPage(driver);
     }
 }
