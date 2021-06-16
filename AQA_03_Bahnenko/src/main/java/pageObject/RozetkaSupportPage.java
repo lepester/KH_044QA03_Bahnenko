@@ -23,6 +23,4 @@ public class RozetkaSupportPage extends BasePage {
         searchInput.submit();
         return new SupportSearchResults(driver);
     }
-
-
 }

@@ -1,4 +1,3 @@
-
 import org.testng.annotations.Test;
 import pageObject.RozetkaHomePage;
 import testClasses.BaseTest;
@@ -12,5 +11,4 @@ public class SellerFilterTest extends BaseTest {
                 .openFatMenu()
                 .chooseRozetkaSeller();
     }
-
 }

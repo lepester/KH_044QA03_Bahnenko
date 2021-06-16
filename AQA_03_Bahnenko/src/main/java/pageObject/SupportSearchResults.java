@@ -15,5 +15,4 @@ public class SupportSearchResults extends BasePage {
         PageFactory.initElements(driver, this);
         searchResults.isDisplayed();
     }
-
 }

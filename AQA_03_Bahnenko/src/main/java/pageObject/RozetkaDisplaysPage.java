@@ -7,9 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-
 import java.util.List;
-
 
 public class RozetkaDisplaysPage extends BasePage {
     By sellerFilter = By.cssSelector("li.checkbox-filter__item");
@@ -17,7 +15,6 @@ public class RozetkaDisplaysPage extends BasePage {
     private WebElement catalogSettings;
     @FindBy(css = "a.goods-tile__picture")
     private WebElement display;
-
 
     public RozetkaDisplaysPage(WebDriver driver) {
         this.driver = driver;

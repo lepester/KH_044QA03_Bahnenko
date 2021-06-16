@@ -16,5 +16,4 @@ public class LogInTest extends BaseTest {
                         "dmitrogordon@gmail.com",
                         "ptaShineMoloko12AE");
     }
-
 }
