@@ -11,9 +11,7 @@ public class RozetkaHomePage extends BasePage {
     @FindBy(css = "button.search-form__submit")
     private WebElement searchButtonSubmit;
     @FindBy(css = "main.content_type_main")
-    private WebElement sidebar;
-    @FindBy(css = "button.menu__toggle")
-    private WebElement catalog;
+    private WebElement fatMenu;
     @FindBy(xpath = "//a[@href='https://hard.rozetka.com.ua/monitors/c80089/']")
     private WebElement displaySection;
     @FindBy(css = "button.header__button")
@@ -33,18 +31,19 @@ public class RozetkaHomePage extends BasePage {
     @FindBy(css = "a.auth-modal__register-link")
     private WebElement registerButton;
 
+
     public RozetkaHomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    public RozetkaHomePage openFatMenu() {
+    public RozetkaHomePage openPage() {
         driver.get("https://rozetka.com.ua/");
         return this;
     }
 
-    public RozetkaDisplaysPage openCatalog() {
-        catalog.click();
+    public RozetkaDisplaysPage openFatMenu() {
+        fatMenu.click();
         displaySection.click();
         return new RozetkaDisplaysPage(driver);
     }
@@ -67,7 +66,7 @@ public class RozetkaHomePage extends BasePage {
         return this;
     }
 
-    public RozetkaSearchResults goToSearchResultsRozetka(String searchText) {
+    public RozetkaSearchResults goToRozetkaSearchResults(String searchText) {
         searchFieldRozetka.clear();
         searchFieldRozetka.sendKeys(searchText);
         searchButtonSubmit.click();
