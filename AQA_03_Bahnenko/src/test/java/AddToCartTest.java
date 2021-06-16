@@ -29,7 +29,8 @@ public class AddToCartTest extends BaseTest {
         Assert.assertEquals(URL, "https://rozetka.com.ua/");
         rozetkaHomePage.goToSearchResultsRozetka("монитор");
         rozetkaSearchResults.goToDisplayPage()
-                            .clickToCheckout();
+                            .clickToCheckout()
+                            .enterData("Гордон","Дмитро","0849143434");
     }
 
 

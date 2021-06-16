@@ -17,7 +17,7 @@ public class DataProviderTest extends BaseTest {
     @Test(groups = { "exclude-group" }, dataProvider = "searchText")
     public void dataProviderTest(String searchText) {
         RozetkaHomePage rozetkaHomePage = new RozetkaHomePage(driver);
-        rozetkaHomePage.openFatMenu()
+        rozetkaHomePage.openPage()
                        .goToSearchResultsRozetka(searchText);
     }
 }

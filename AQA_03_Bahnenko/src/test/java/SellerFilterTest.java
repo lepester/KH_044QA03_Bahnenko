@@ -8,8 +8,8 @@ public class SellerFilterTest extends BaseTest {
     @Test(groups = {"exclude-group"})
     public void sellerFilterTest() {
         RozetkaHomePage rozetkaHomePage = new RozetkaHomePage(driver);
-        rozetkaHomePage.openFatMenu()
-                .openCatalog()
+        rozetkaHomePage.openPage()
+                .openFatMenu()
                 .chooseRozetkaSeller();
     }
 

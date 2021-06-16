@@ -23,7 +23,7 @@ public class RozetkaProductPage extends BasePage {
     public RozetkaProductPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-       visibilityWaiter(tabItemMain);
+        tabItemMain.isDisplayed();
     }
 
     public Checkout clickToCheckout() {
