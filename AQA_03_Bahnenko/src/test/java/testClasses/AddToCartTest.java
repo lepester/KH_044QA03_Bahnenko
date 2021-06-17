@@ -1,3 +1,5 @@
+package testClasses;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObject.RozetkaHomePage;
@@ -15,7 +17,7 @@ public class AddToCartTest extends BaseTest {
         String URL = driver.getCurrentUrl();
         Assert.assertEquals(URL, "https://rozetka.com.ua/");
         rozetkaHomePage.goToRozetkaSearchResults("монитор");
-        rozetkaSearchResults.goToDisplayPage()
+        rozetkaSearchResults.goToFirstProductPage()
                             .clickToCheckout();
     }
 

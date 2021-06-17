@@ -13,6 +13,8 @@
             <class name="testClasses.BaseTest"/>
             <class name="testClasses.DataProviderTest"/>
             <class name="testClasses.LogInTest"/>
+            <class name="testClasses.SellerFilterTest"/>
+            <class name="testClasses.AddToCartTest"/>
         </classes>
     </test>
 </suite>
