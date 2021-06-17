@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "required": [
+    "data",
+    "support"
+  ],
+  "properties": {
+    "data": {
+      "$id": "#/properties/data",
+      "type": "object",
+      "required": [
+        "id",
+        "email",
+        "first_name",
+        "last_name",
+        "avatar"
+      ],
+      "properties": {
+        "id": {
+          "$id": "#/properties/data/properties/id",
+          "type": "integer"
+        },
+        "email": {
+          "$id": "#/properties/data/properties/email",
+          "type": "string"
+        },
+        "first_name": {
+          "$id": "#/properties/data/properties/first_name",
+          "type": "string"
+        },
+        "last_name": {
+          "$id": "#/properties/data/properties/last_name",
+          "type": "string"
+        },
+        "avatar": {
+          "$id": "#/properties/data/properties/avatar",
+          "type": "string"
+        }
+      }
+    },
+    "support": {
+      "$id": "#/properties/support",
+      "type": "object",
+      "required": [
+        "url",
+        "text"
+      ],
+      "properties": {
+        "url": {
+          "$id": "#/properties/support/properties/url",
+          "type": "string"
+        },
+        "text": {
+          "$id": "#/properties/support/properties/text",
+          "type": "string"
+        }
+      }
+    }
+  }
+}
