@@ -17,13 +17,15 @@ public class RozetkaSearchResults extends BasePage {
     @FindBy(css = "layout_with_sidebar")
     private WebElement sidebar;
     By sellerFilter = By.cssSelector("li.checkbox-filter__item");
+    @FindBy(css = "li.checkbox-filter__item")
+    private WebElement checkBox;
     @FindBy(css = "div.catalog-settings")
     private WebElement catalogSettings;
 
     public RozetkaSearchResults(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        resultsGrid.isDisplayed();
+        catalogSettings.isDisplayed();
     }
 
     public RozetkaProductPage goToFirstProductPage() {
@@ -34,9 +36,7 @@ public class RozetkaSearchResults extends BasePage {
     public RozetkaSearchResults chooseRozetkaSeller() {
         List<WebElement> filters = driver.findElements(sellerFilter);
         filters.get(0).click();
-        String assertSeller = "Rozetka";
-        Assert.assertEquals(assertSeller,"Rozetka");
-        visibilityWaiter(catalogSettings);
+        Assert.assertFalse(checkBox.isSelected());
         return this;
     }
 }
