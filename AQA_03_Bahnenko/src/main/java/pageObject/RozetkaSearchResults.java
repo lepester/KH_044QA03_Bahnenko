@@ -36,7 +36,7 @@ public class RozetkaSearchResults extends BasePage {
     public RozetkaSearchResults chooseRozetkaSeller() {
         List<WebElement> filters = driver.findElements(sellerFilter);
         filters.get(0).click();
-        Assert.assertFalse(checkBox.isSelected());
+        Assert.assertTrue(checkBox.isSelected());
         return this;
     }
 }
