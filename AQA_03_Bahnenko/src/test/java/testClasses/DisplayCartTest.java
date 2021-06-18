@@ -41,7 +41,7 @@ public class DisplayCartTest {
         String URL = driver.getCurrentUrl();
         Assert.assertEquals(URL, "https://rozetka.com.ua/");
         rozetkaHomePage.goToRozetkaSearchResults("book");
-        rozetkaSearchResults.goToFirstProductPage()
+        rozetkaSearchResults.goToFirstProduct()
                             .clickToCheckout();
     }
 

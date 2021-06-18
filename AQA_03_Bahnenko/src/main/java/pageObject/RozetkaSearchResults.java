@@ -9,15 +9,18 @@ import org.testng.Assert;
 
 import java.util.List;
 
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
 public class RozetkaSearchResults extends BasePage {
     @FindBy(css = "a.goods-tile__picture")
     private WebElement firstProduct;
     @FindBy(css = "div.layout_with_sidebar")
     private WebElement resultsGrid;
-    @FindBy(css = "layout_with_sidebar")
+    @FindBy(css = "div.layout_with_sidebar")
     private WebElement sidebar;
     By sellerFilter = By.cssSelector("li.checkbox-filter__item");
-    @FindBy(css = "li.checkbox-filter__item")
+    @FindBy(id = "Rozetka")
     private WebElement checkBox;
     @FindBy(css = "div.catalog-settings")
     private WebElement catalogSettings;
@@ -25,15 +28,16 @@ public class RozetkaSearchResults extends BasePage {
     public RozetkaSearchResults(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        catalogSettings.isDisplayed();
+        visibilityWaiter(catalogSettings);
     }
 
-    public RozetkaProductPage goToFirstProductPage() {
+    public RozetkaProductPage goToFirstProduct() {
         firstProduct.click();
         return new RozetkaProductPage(driver);
     }
 
     public RozetkaSearchResults chooseRozetkaSeller() {
+        checkBox.isEnabled();
         List<WebElement> filters = driver.findElements(sellerFilter);
         filters.get(0).click();
         Assert.assertTrue(checkBox.isSelected());
