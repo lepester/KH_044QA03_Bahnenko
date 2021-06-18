@@ -1,6 +1,7 @@
 package pageObject;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,8 +21,6 @@ public class RozetkaSearchResults extends BasePage {
     @FindBy(css = "div.layout_with_sidebar")
     private WebElement sidebar;
     By sellerFilter = By.cssSelector("li.checkbox-filter__item");
-    @FindBy(id = "Rozetka")
-    private WebElement checkBox;
     @FindBy(css = "div.catalog-settings")
     private WebElement catalogSettings;
 
@@ -36,11 +35,17 @@ public class RozetkaSearchResults extends BasePage {
         return new RozetkaProductPage(driver);
     }
 
-    public RozetkaSearchResults chooseRozetkaSeller() {
-        checkBox.isEnabled();
-        List<WebElement> filters = driver.findElements(sellerFilter);
-        filters.get(0).click();
-        Assert.assertTrue(checkBox.isSelected());
+    public RozetkaSearchResults ChooseSellerFilter(String []moreFilters) {
+       try {
+           for (String moreFilter : moreFilters) {
+               WebElement checkBox = driver.findElement(By.xpath("//label[@for='" + moreFilter + "']"));
+               checkBox.isEnabled();
+               checkBox.click();
+               resultsGrid.isDisplayed();
+           }
+       } catch (StaleElementReferenceException e) {
+           e.printStackTrace();
+       }
         return this;
     }
 }
