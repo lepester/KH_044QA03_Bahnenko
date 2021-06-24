@@ -2,7 +2,7 @@ package apiTests;
 
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
-import testClasses.BaseTest;
+
 
 import java.io.File;
 
