@@ -27,7 +27,6 @@ public class RozetkaSearchResults extends BasePage {
     public RozetkaSearchResults(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        visibilityWaiter(catalogSettings);
     }
 
     public RozetkaProductPage goToFirstProduct() {
@@ -37,8 +36,8 @@ public class RozetkaSearchResults extends BasePage {
 
     public RozetkaSearchResults ChooseSellerFilter(String []filtersArray) {
        try {
-           for (String moreFilter : filtersArray) {
-               WebElement checkBox = driver.findElement(By.xpath("//label[@for='" + moreFilter + "']"));
+           for (String filter : filtersArray) {
+               WebElement checkBox = driver.findElement(By.xpath("//label[@for='" + filter + "']"));
                visibilityWaiter(checkBox);
                checkBox.click();
                resultsGrid.isDisplayed();

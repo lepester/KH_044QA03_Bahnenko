@@ -6,8 +6,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class Checkout extends BasePage {
-    @FindBy(xpath = "//div[@class='preloader']")
-    private WebElement preloaderLine;
     @FindBy(xpath = "//input[@formcontrolname='surname']")
     private WebElement surnameInput;
     @FindBy(xpath = "//input[@formcontrolname='name']")
@@ -19,10 +17,9 @@ public class Checkout extends BasePage {
     public Checkout(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-        preloaderLine.isDisplayed();
     }
 
-    public Checkout enterData(String surname, String name, String phone) {
+    public Checkout userData(String surname, String name, String phone) {
         surnameInput.sendKeys(surname);
         nameInput.sendKeys(name);
         phoneInput.sendKeys(phone);

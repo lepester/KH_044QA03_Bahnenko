@@ -9,8 +9,10 @@
             <class name="testClasses.DataProviderTest"/>
             <class name="testClasses.LogInTest"/>
             <class name="testClasses.SupportPageTest"/>
-            <class name="AddToCartTest"/>
-            <class name="SellerFilterTest"/>
+            <class name="testClasses.AddToCartTest"/>
+            <class name="testClasses.SellerFilterTest"/>
+            <class name="testClasses.DisplayCartTest"/>
+            <class name="testClasses.SupportPageTest"/>
         </classes>
     </test>
 </suite>

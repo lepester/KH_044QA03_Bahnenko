@@ -7,12 +7,11 @@ public class SellerFilterTest extends BaseTest {
 
     @Test(groups = {"exclude-group"})
     public void sellerFilterTest() {
-        String[] moreFilters = new String[]{"Rozetka", "Другие продавцы"};
+        String[] filtersArray = new String[]{"Rozetka", "Другие продавцы"};
         RozetkaHomePage rozetkaHomePage = new RozetkaHomePage(driver);
-        rozetkaHomePage
-                .openPage()
-                .openFatMenu()
-                .ChooseSellerFilter(moreFilters);
+        rozetkaHomePage.openPage()
+                .goToRozetkaSearchResults("монитор")
+                .ChooseSellerFilter(filtersArray);
 
 
     }

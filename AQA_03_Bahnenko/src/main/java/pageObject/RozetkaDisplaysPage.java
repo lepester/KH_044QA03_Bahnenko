@@ -20,14 +20,4 @@ public class RozetkaDisplaysPage extends BasePage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-
-    public RozetkaProductPage chooseRozetkaSeller() {
-        List<WebElement> filters = driver.findElements(sellerFilter);
-        filters.get(0).click();
-        String assertSeller = "Rozetka";
-        Assert.assertEquals(assertSeller,"Rozetka");
-        visibilityWaiter(catalogSettings);
-        display.click();
-        return new RozetkaProductPage(driver);
-    }
 }

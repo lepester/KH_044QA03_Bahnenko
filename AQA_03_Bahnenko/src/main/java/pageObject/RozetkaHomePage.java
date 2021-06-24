@@ -43,7 +43,7 @@ public class RozetkaHomePage extends BasePage {
         return this;
     }
 
-    public RozetkaSearchResults openFatMenu() {
+    public RozetkaDisplaysPage openFatMenu() {
         fatMenu.click();
         displaySection.click();
         return new RozetkaDisplaysPage(driver);

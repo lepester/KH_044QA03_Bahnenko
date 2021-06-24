@@ -5,8 +5,6 @@ import org.testng.annotations.Test;
 import pageObject.RozetkaHomePage;
 import pageObject.RozetkaSearchResults;
 
-import testClasses.BaseTest;
-
 public class AddToCartTest extends BaseTest {
 
 
@@ -17,9 +15,9 @@ public class AddToCartTest extends BaseTest {
 
         String URL = driver.getCurrentUrl();
         Assert.assertEquals(URL, "https://rozetka.com.ua/");
-        rozetkaHomePage.goToSearchResultsRozetka("монитор");
-        rozetkaSearchResults.goToDisplayPage()
+        rozetkaHomePage.goToRozetkaSearchResults("монитор");
+        rozetkaSearchResults.goToFirstProduct()
                             .clickToCheckout()
-                            .enterData("Гордон","Дмитро","0849143434");
+                            .userData("Гордон","Дмитро","0849143434");
     }
 }
