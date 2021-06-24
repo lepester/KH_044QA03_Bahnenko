@@ -18,6 +18,6 @@ public class DataProviderTest extends BaseTest {
     public void dataProviderTest(String searchText) {
         RozetkaHomePage rozetkaHomePage = new RozetkaHomePage(driver);
         rozetkaHomePage.openPage()
-                       .goToSearchResultsRozetka(searchText);
+                       .goToRozetkaSearchResults(searchText);
     }
 }

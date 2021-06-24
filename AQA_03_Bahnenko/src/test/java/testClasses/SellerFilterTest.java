@@ -1,14 +1,19 @@
+package testClasses;
+
 import org.testng.annotations.Test;
 import pageObject.RozetkaHomePage;
-import testClasses.BaseTest;
 
 public class SellerFilterTest extends BaseTest {
 
     @Test(groups = {"exclude-group"})
     public void sellerFilterTest() {
+        String[] moreFilters = new String[]{"Rozetka", "Другие продавцы"};
         RozetkaHomePage rozetkaHomePage = new RozetkaHomePage(driver);
-        rozetkaHomePage.openPage()
+        rozetkaHomePage
+                .openPage()
                 .openFatMenu()
-                .chooseRozetkaSeller();
+                .ChooseSellerFilter(moreFilters);
+
+
     }
 }

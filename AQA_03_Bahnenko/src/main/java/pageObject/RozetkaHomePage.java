@@ -10,10 +10,8 @@ public class RozetkaHomePage extends BasePage {
     private WebElement searchFieldRozetka;
     @FindBy(css = "button.search-form__submit")
     private WebElement searchButtonSubmit;
-    @FindBy(css = "main.content_type_main")
-    private WebElement sidebar;
     @FindBy(css = "button.menu__toggle")
-    private WebElement catalog;
+    private WebElement fatMenu;
     @FindBy(xpath = "//a[@href='https://hard.rozetka.com.ua/monitors/c80089/']")
     private WebElement displaySection;
     @FindBy(css = "button.header__button")
@@ -45,8 +43,8 @@ public class RozetkaHomePage extends BasePage {
         return this;
     }
 
-    public RozetkaDisplaysPage openFatMenu() {
-        catalog.click();
+    public RozetkaSearchResults openFatMenu() {
+        fatMenu.click();
         displaySection.click();
         return new RozetkaDisplaysPage(driver);
     }
@@ -69,7 +67,7 @@ public class RozetkaHomePage extends BasePage {
         return this;
     }
 
-    public RozetkaSearchResults goToSearchResultsRozetka(String searchText) {
+    public RozetkaSearchResults goToRozetkaSearchResults(String searchText) {
         searchFieldRozetka.clear();
         searchFieldRozetka.sendKeys(searchText);
         searchButtonSubmit.click();

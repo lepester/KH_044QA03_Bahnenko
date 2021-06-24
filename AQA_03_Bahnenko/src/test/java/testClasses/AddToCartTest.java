@@ -1,7 +1,10 @@
+package testClasses;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageObject.RozetkaHomePage;
 import pageObject.RozetkaSearchResults;
+
 import testClasses.BaseTest;
 
 public class AddToCartTest extends BaseTest {
