@@ -46,10 +46,4 @@ public class BaseTest {
             }
         driver.quit();
     }
-
-    @AfterSuite
-    public void afterSuite() {
-        System.out.println("All tests passed");
-    }
-
 }
