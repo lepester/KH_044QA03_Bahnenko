@@ -35,11 +35,11 @@ public class RozetkaSearchResults extends BasePage {
         return new RozetkaProductPage(driver);
     }
 
-    public RozetkaSearchResults ChooseSellerFilter(String []moreFilters) {
+    public RozetkaSearchResults ChooseSellerFilter(String []filtersArray) {
        try {
-           for (String moreFilter : moreFilters) {
+           for (String moreFilter : filtersArray) {
                WebElement checkBox = driver.findElement(By.xpath("//label[@for='" + moreFilter + "']"));
-               checkBox.isEnabled();
+               visibilityWaiter(checkBox);
                checkBox.click();
                resultsGrid.isDisplayed();
            }
