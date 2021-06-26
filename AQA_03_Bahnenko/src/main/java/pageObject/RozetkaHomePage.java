@@ -1,5 +1,6 @@
 package pageObject;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,10 +11,6 @@ public class RozetkaHomePage extends BasePage {
     private WebElement searchFieldRozetka;
     @FindBy(css = "button.search-form__submit")
     private WebElement searchButtonSubmit;
-    @FindBy(css = "button.menu__toggle")
-    private WebElement fatMenu;
-    @FindBy(xpath = "//a[@href='https://hard.rozetka.com.ua/monitors/c80089/']")
-    private WebElement displaySection;
     @FindBy(css = "button.header__button")
     private WebElement hamburgerButton;
     @FindBy(css = "button.side-menu__auth-button")
@@ -39,14 +36,9 @@ public class RozetkaHomePage extends BasePage {
     }
 
     public RozetkaHomePage openPage() {
+        BasePage.logger.info("Starting browser...");
         driver.get("https://rozetka.com.ua/");
         return this;
-    }
-
-    public RozetkaDisplaysPage openFatMenu() {
-        fatMenu.click();
-        displaySection.click();
-        return new RozetkaDisplaysPage(driver);
     }
 
     public RozetkaHomePage openSideMenu() {
@@ -58,6 +50,7 @@ public class RozetkaHomePage extends BasePage {
     }
 
     public RozetkaHomePage logIn(String name, String surname, String phone, String email, String password) {
+        BasePage.logger.info("Executing Log in test...");
         registerButton.click();
         nameInput.sendKeys(name);
         surnameInput.sendKeys(surname);
@@ -75,6 +68,7 @@ public class RozetkaHomePage extends BasePage {
     }
 
     public RozetkaSupportPage goToSupportPage() {
+        BasePage.logger.info("Redirecting to Support Page...");
         supportButton.click();
         return new RozetkaSupportPage(driver);
     }

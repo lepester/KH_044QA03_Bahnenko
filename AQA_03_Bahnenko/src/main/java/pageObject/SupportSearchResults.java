@@ -11,6 +11,7 @@ public class SupportSearchResults extends BasePage {
     private WebElement searchResults;
 
     public SupportSearchResults(WebDriver driver) {
+        BasePage.logger.info("We are on support page rn...");
         this.driver = driver;
         PageFactory.initElements(driver, this);
         searchResults.isDisplayed();

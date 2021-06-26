@@ -10,14 +10,12 @@ import org.testng.Assert;
 import java.util.List;
 
 public class RozetkaDisplaysPage extends BasePage {
-    By sellerFilter = By.cssSelector("li.checkbox-filter__item");
-    @FindBy(css = "div.catalog-settings")
-    private WebElement catalogSettings;
     @FindBy(css = "a.goods-tile__picture")
     private WebElement display;
 
     public RozetkaDisplaysPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
+        display.isDisplayed();
     }
 }

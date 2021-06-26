@@ -7,16 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class RozetkaProductPage extends BasePage {
-    @FindBy(css = "div.layout_with_sidebar")
-    private WebElement resultsGrid;
-    @FindBy(xpath = "a.goods-tile__picture")
-    private WebElement products;
-    @FindBy(css = "div.modal__holder")
-    private WebElement modalPreloader;
     @FindBy(css = "span.buy-button__label")
     private WebElement buyButton;
-    @FindBy(xpath = "//product-tab-main")
-    private WebElement tabItemMain;
     @FindBy(css = "a.button_size_large")
     private WebElement acceptButton;
 
@@ -26,6 +18,7 @@ public class RozetkaProductPage extends BasePage {
     }
 
     public Checkout clickToCheckout() {
+        BasePage.logger.info("All is good!");
         Actions actions = new Actions(driver);
         clickableWaiter(buyButton);
         actions.moveToElement(buyButton).perform();
