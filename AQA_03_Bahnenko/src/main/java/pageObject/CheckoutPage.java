@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Checkout extends BasePage {
+public class CheckoutPage extends BasePage {
     @FindBy(xpath = "//input[@formcontrolname='surname']")
     private WebElement surnameInput;
     @FindBy(xpath = "//input[@formcontrolname='name']")
@@ -14,12 +14,12 @@ public class Checkout extends BasePage {
     private WebElement phoneInput;
 
 
-    public Checkout(WebDriver driver) {
+    public CheckoutPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    public Checkout userData(String surname, String name, String phone) {
+    public CheckoutPage enterUserData(String surname, String name, String phone) {
         surnameInput.sendKeys(surname);
         nameInput.sendKeys(name);
         phoneInput.sendKeys(phone);

@@ -18,6 +18,6 @@ public class AddToCartTest extends BaseTest {
         rozetkaHomePage.goToRozetkaSearchResults("монитор");
         rozetkaSearchResults.goToFirstProduct()
                             .clickToCheckout()
-                            .userData("Гордон","Дмитро","0849143434");
+                            .enterUserData("Гордон","Дмитро","0849143434");
     }
 }

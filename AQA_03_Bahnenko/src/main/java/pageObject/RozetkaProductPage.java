@@ -17,7 +17,7 @@ public class RozetkaProductPage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
-    public Checkout clickToCheckout() {
+    public CheckoutPage clickToCheckout() {
         BasePage.logger.info("All is good!");
         Actions actions = new Actions(driver);
         clickableWaiter(buyButton);
@@ -25,6 +25,6 @@ public class RozetkaProductPage extends BasePage {
         buyButton.click();
         clickableWaiter(acceptButton);
         acceptButton.click();
-        return new Checkout(driver);
+        return new CheckoutPage(driver);
     }
 }
