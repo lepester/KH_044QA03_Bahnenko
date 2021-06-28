@@ -9,7 +9,7 @@ public class SupportPageTest extends BaseTest {
     public void supportPageTest() {
         RozetkaHomePage rozetkaHomePage = new RozetkaHomePage(driver);
         rozetkaHomePage.openPage()
-                       .goToSupportPage()
-                       .enterQuery("авторизация");
+                .goToSupportPage()
+                .enterQuery("авторизация");
     }
 }
