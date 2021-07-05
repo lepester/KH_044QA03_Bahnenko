@@ -12,7 +12,5 @@ public class SellerFilterTest extends BaseTest {
         rozetkaHomePage.openPage()
                 .goToRozetkaSearchResults("монитор")
                 .ChooseSellerFilter(filtersArray);
-
-
     }
 }

@@ -42,7 +42,7 @@ public class DisplayCartTest {
         Assert.assertEquals(URL, "https://rozetka.com.ua/");
         rozetkaHomePage.goToRozetkaSearchResults("book");
         rozetkaSearchResults.goToFirstProduct()
-                            .clickToCheckout();
+                .clickToCheckout();
     }
 
     @AfterMethod(alwaysRun = true)

@@ -30,15 +30,15 @@ public class RozetkaSearchResults extends BasePage {
         BasePage.logger.debug("This is debug message");
         BasePage.logger.info("Searching for seller filters...");
         try {
-           for (String filter : filtersArray) {
-               WebElement checkBox = driver.findElement(By.xpath("//label[@for='" + filter + "']"));
-               visibilityWaiter(checkBox);
-               checkBox.click();
-               resultsGrid.isDisplayed();
-           }
-       } catch (StaleElementReferenceException e) {
-           e.printStackTrace();
-       }
+            for (String filter : filtersArray) {
+                WebElement checkBox = driver.findElement(By.xpath("//label[@for='" + filter + "']"));
+                visibilityWaiter(checkBox);
+                checkBox.click();
+                resultsGrid.isDisplayed();
+            }
+        } catch (StaleElementReferenceException e) {
+            e.printStackTrace();
+        }
         return this;
     }
 }
